@@ -1,1 +1,731 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>शुभ विवाह | राघव ♥ महक</title>
+<meta name="description" content="चि. रामदास (राघव) संग सौ. महक रानी के शुभ विवाह का निमंत्रण">
+<meta name="theme-color" content="#5a0a16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Tiro+Devanagari+Hindi:ital@0;1&family=Yatra+One&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
 
+<style>
+/* ============ THEME (change colours here) ============ */
+:root{
+  --maroon:#6b0f1a;
+  --maroon-d:#4a0811;
+  --maroon-l:#8a1a28;
+  --gold:#e0b04a;
+  --gold-l:#f6dc9a;
+  --cream:#fbf1dc;
+  --ink:#f8e9c8;
+  --serif:'Tiro Devanagari Hindi','Cormorant Garamond',Georgia,serif;
+  --display:'Yatra One','Tiro Devanagari Hindi',serif;
+  --sans:'Hind','Noto Sans Devanagari',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--serif);color:var(--ink);background:#2a050b;
+  min-height:100vh;overflow-x:hidden;
+}
+body.locked{overflow:hidden;height:100vh}
+
+/* page column (phone-width, centred on desktop) */
+#app{
+  position:relative;max-width:480px;margin:0 auto;min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 0,rgba(255,255,255,.07),transparent 55%),
+    var(--maroon);
+  box-shadow:0 0 80px rgba(0,0,0,.6);overflow:hidden;
+}
+/* lattice (jaali) pattern */
+#app::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.16;
+  background-image:
+    radial-gradient(circle at 50% 50%,transparent 0 9px,var(--gold) 9.5px 10.5px,transparent 11px),
+    radial-gradient(circle at 0 0,transparent 0 9px,var(--gold) 9.5px 10.5px,transparent 11px),
+    radial-gradient(circle at 100% 0,transparent 0 9px,var(--gold) 9.5px 10.5px,transparent 11px),
+    radial-gradient(circle at 0 100%,transparent 0 9px,var(--gold) 9.5px 10.5px,transparent 11px),
+    radial-gradient(circle at 100% 100%,transparent 0 9px,var(--gold) 9.5px 10.5px,transparent 11px);
+  background-size:36px 36px;
+}
+section{position:relative;padding:64px 26px;text-align:center}
+.eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);opacity:.9}
+h2.title{font-family:var(--display);font-weight:400;font-size:30px;color:var(--gold-l);margin:10px 0 6px;line-height:1.3}
+.divider{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--gold);margin:14px auto 22px;width:70%}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.divider::after{transform:scaleX(-1)}
+.divider i{font-style:normal;font-size:14px}
+
+/* scroll-reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
+
+/* ============ GATE ============ */
+#gate{position:fixed;inset:0;z-index:100;display:flex;justify-content:center;pointer-events:auto}
+#gate.gone{pointer-events:none}
+.gate-inner{position:relative;width:100%;max-width:480px;height:100%;overflow:hidden}
+.door{
+  position:absolute;top:0;bottom:0;width:50.2%;
+  background:
+    radial-gradient(circle at 50% 50%,transparent 0 9px,rgba(224,176,74,.35) 9.5px 10.5px,transparent 11px) 0 0/36px 36px,
+    linear-gradient(180deg,var(--maroon-d),var(--maroon));
+  transition:transform 1.8s cubic-bezier(.77,0,.18,1);
+  z-index:2;
+}
+.door.l{left:0;border-right:2px solid var(--gold)}
+.door.r{right:0;border-left:2px solid var(--gold)}
+.door svg{position:absolute;inset:0;width:100%;height:100%}
+#gate.open .door.l{transform:translateX(-102%)}
+#gate.open .door.r{transform:translateX(102%)}
+.gate-top{
+  position:absolute;top:0;left:0;right:0;z-index:5;text-align:center;padding-top:18vh;
+  transition:opacity .6s;
+}
+.gate-top .sh{font-family:var(--display);font-size:clamp(40px,12vw,56px);color:var(--gold-l);text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.gate-top .nm{font-family:var(--sans);letter-spacing:.3em;font-size:12px;color:var(--gold);margin-top:10px}
+.seal{
+  position:absolute;left:50%;top:52%;z-index:6;width:118px;height:118px;border-radius:50%;
+  transform:translate(-50%,-50%);border:0;cursor:pointer;
+  background:radial-gradient(circle at 35% 30%,#ff6a73,#c01d2d 55%,#7e0f1c);
+  box-shadow:0 0 0 5px var(--gold),0 0 0 8px var(--maroon-d),0 12px 34px rgba(0,0,0,.55);
+  color:var(--gold-l);font-family:var(--display);font-size:30px;line-height:1;
+  display:grid;place-items:center;animation:pulse 2s ease-in-out infinite;
+  transition:opacity .5s,transform .8s;
+}
+.seal::after{content:"";position:absolute;inset:9px;border-radius:50%;border:1.5px dashed rgba(246,220,154,.7)}
+.seal small{display:block;font-size:20px;margin:2px 0;color:#ffd7a0}
+@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.07)}}
+.tap{position:absolute;bottom:9vh;left:0;right:0;text-align:center;z-index:5;font-family:var(--sans);
+  letter-spacing:.3em;font-size:11px;color:var(--gold);animation:blink 2s infinite}
+@keyframes blink{50%{opacity:.35}}
+#gate.open .seal{opacity:0;transform:translate(-50%,-50%) scale(1.6);animation:none}
+#gate.open .gate-top,#gate.open .tap{opacity:0}
+
+/* ============ GARLANDS ============ */
+.garland{position:absolute;left:0;right:0;top:0;width:100%;height:auto;pointer-events:none;z-index:4}
+.gate-inner .garland{z-index:7}
+
+/* ============ HERO ============ */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:110px;padding-bottom:230px}
+.om{font-size:15px;color:var(--gold);letter-spacing:.2em;margin-bottom:8px}
+#hero .shubh{font-family:var(--display);font-size:clamp(40px,12vw,54px);color:var(--gold-l);line-height:1.2;text-shadow:0 3px 20px rgba(0,0,0,.4)}
+.hero-names{margin:26px 0 8px;font-family:var(--display);font-size:clamp(34px,10vw,46px);line-height:1.25;color:var(--cream)}
+.hero-names .amp{display:block;font-size:20px;color:var(--gold);margin:2px 0}
+.hero-date{font-family:var(--sans);letter-spacing:.22em;font-size:13px;color:var(--gold-l);margin-top:16px}
+.hero-date b{font-weight:600}
+.scroll-hint{position:absolute;left:0;right:0;bottom:200px;font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--gold);animation:blink 2.4s infinite}
+.palace{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;display:block}
+.stars i{position:absolute;color:var(--gold);font-style:normal;animation:tw 3s infinite}
+@keyframes tw{50%{opacity:.2;transform:scale(.7)}}
+
+/* ============ INVITE ============ */
+#invite .shloka{font-size:15px;line-height:2;color:var(--gold-l);font-style:italic}
+.mantra{font-size:13px;color:var(--gold);margin:0 0 4px}
+.kripa{margin:26px 0 8px;font-size:15px;color:var(--ink);opacity:.9}
+.host{font-family:var(--display);font-size:22px;color:var(--gold-l);line-height:1.5}
+.small{font-size:14px;opacity:.85;margin:10px 0}
+.person{margin:22px auto;padding:26px 18px;max-width:340px;border:1.5px solid rgba(224,176,74,.55);border-radius:180px 180px 18px 18px;
+  background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.05));position:relative}
+.person::before{content:"";position:absolute;inset:6px;border:1px solid rgba(224,176,74,.3);border-radius:174px 174px 12px 12px;pointer-events:none}
+.person .tag{font-family:var(--sans);letter-spacing:.3em;font-size:10px;color:var(--gold);text-transform:uppercase}
+.person .pname{font-family:var(--display);font-size:31px;color:var(--cream);margin:8px 0 4px;line-height:1.25}
+.person .pname em{font-style:normal;font-size:22px;color:var(--gold-l)}
+.person .par{font-size:13.5px;line-height:1.8;opacity:.88}
+.sang{font-family:var(--display);color:var(--gold);font-size:22px;margin:6px 0}
+.vivah{font-family:var(--display);font-size:28px;color:var(--gold-l);margin-top:30px}
+.msg{margin-top:12px;line-height:2;font-size:16px}
+
+/* ============ COUNTDOWN ============ */
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:26px 0 8px}
+.count div{background:rgba(0,0,0,.25);border:1px solid rgba(224,176,74,.45);border-radius:14px;padding:14px 4px}
+.count b{display:block;font-family:var(--display);font-weight:400;font-size:30px;color:var(--gold-l)}
+.count span{font-size:12px;color:var(--gold);font-family:var(--sans)}
+.btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:12px 22px;border-radius:999px;border:1.5px solid var(--gold);
+  background:transparent;color:var(--gold-l);font-family:var(--serif);font-size:15px;cursor:pointer;text-decoration:none;transition:.25s}
+.btn:hover,.btn:active{background:var(--gold);color:var(--maroon-d)}
+.btn.solid{background:var(--gold);color:var(--maroon-d)}
+.btn.solid:hover{background:var(--gold-l)}
+
+/* ============ FESTIVITIES CAROUSEL ============ */
+#events{padding-left:0;padding-right:0}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 11% 20px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.ev{flex:0 0 78%;scroll-snap-align:center;border-radius:26px;padding:28px 18px 26px;position:relative;
+  background:linear-gradient(170deg,rgba(0,0,0,.28),rgba(0,0,0,.08));border:1.5px solid rgba(224,176,74,.5);
+  transition:transform .4s,opacity .4s;opacity:.55;transform:scale(.93)}
+.ev.act{opacity:1;transform:none}
+.ev .ic{width:92px;height:92px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;font-size:42px;
+  background:radial-gradient(circle,var(--gold-l),var(--gold));box-shadow:0 0 0 6px rgba(224,176,74,.22),inset 0 -6px 14px rgba(0,0,0,.18)}
+.ev h3{font-family:var(--display);font-weight:400;font-size:26px;color:var(--cream);line-height:1.3}
+.ev .day{font-family:var(--sans);font-size:11px;letter-spacing:.2em;color:var(--gold);margin-top:10px;text-transform:uppercase}
+.ev .dt{font-family:var(--display);font-size:20px;color:var(--gold-l);margin-top:4px}
+.ev .tm{margin-top:8px;font-size:17px}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:4px}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(224,176,74,.35);transition:.3s}
+.dots i.on{background:var(--gold);width:22px;border-radius:6px}
+.swipe{font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--gold);margin-bottom:6px}
+
+/* timeline list (compact) */
+.tl{max-width:360px;margin:30px auto 0;text-align:left}
+.tl .row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(224,176,74,.35);font-size:15px}
+.tl .row b{font-weight:400;color:var(--gold-l)}
+.tl .row span:last-child{color:var(--ink);white-space:nowrap}
+.tl .dh{font-family:var(--sans);font-size:11px;letter-spacing:.18em;color:var(--gold);padding-top:16px;border:0}
+
+/* ============ VENUE ============ */
+.venue-name{font-family:var(--display);font-size:32px;color:var(--cream);margin-top:6px}
+.venue-name em{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold-l)}
+.addr{margin-top:8px;line-height:1.9;font-size:16px}
+.map{margin-top:24px;border-radius:22px;overflow:hidden;border:2px solid var(--gold);box-shadow:0 12px 30px rgba(0,0,0,.4);background:#3b0a12;aspect-ratio:4/3.2}
+.map iframe{width:100%;height:100%;border:0;display:block;filter:saturate(.85)}
+
+/* ============ GALLERY (appears only if PHOTOS has items) ============ */
+#gallery{display:none}
+#gallery.show{display:block}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.gal img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;border:2px solid var(--gold-l);box-shadow:0 8px 18px rgba(0,0,0,.4)}
+.gal img:first-child{grid-column:span 2;aspect-ratio:16/11}
+
+/* ============ FAMILY ============ */
+.fam{margin-top:22px}
+.fam h4{font-family:var(--display);font-weight:400;font-size:19px;color:var(--gold);margin-bottom:6px}
+.fam p{font-size:15.5px;line-height:1.95;color:var(--ink)}
+.fam + .fam{margin-top:28px}
+.three{display:grid;gap:22px;margin-top:30px}
+.firm{margin-top:34px;padding-top:18px;border-top:1px solid rgba(224,176,74,.4);font-size:14px;color:var(--gold-l)}
+
+footer{padding:50px 26px 70px;text-align:center;font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:var(--gold)}
+footer .big{font-family:var(--display);font-size:26px;letter-spacing:0;color:var(--gold-l);margin-bottom:10px}
+
+#petals{position:fixed;inset:0;pointer-events:none;z-index:50}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body class="locked">
+
+<!-- reusable marigold flower -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mg" viewBox="-20 -20 40 40">
+      <g>
+        <g id="pt"><ellipse cx="0" cy="-11" rx="6.2" ry="9"/></g>
+        <use href="#pt" transform="rotate(30)"/><use href="#pt" transform="rotate(60)"/><use href="#pt" transform="rotate(90)"/>
+        <use href="#pt" transform="rotate(120)"/><use href="#pt" transform="rotate(150)"/><use href="#pt" transform="rotate(180)"/>
+        <use href="#pt" transform="rotate(210)"/><use href="#pt" transform="rotate(240)"/><use href="#pt" transform="rotate(270)"/>
+        <use href="#pt" transform="rotate(300)"/><use href="#pt" transform="rotate(330)"/>
+        <circle r="6" fill="#b45309" opacity=".55"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<canvas id="petals"></canvas>
+
+<!-- ================= GATE ================= -->
+<div id="gate">
+  <div class="gate-inner">
+    <div class="door l">
+      <svg viewBox="0 0 120 400" preserveAspectRatio="none" fill="none" stroke="#e0b04a" stroke-width="1.6" opacity=".75">
+        <path d="M14 400V150Q14 70 120 60" vector-effect="non-scaling-stroke"/>
+        <path d="M30 400V160Q30 92 120 82" vector-effect="non-scaling-stroke" opacity=".6"/>
+      </svg>
+    </div>
+    <div class="door r">
+      <svg viewBox="0 0 120 400" preserveAspectRatio="none" fill="none" stroke="#e0b04a" stroke-width="1.6" opacity=".75">
+        <path d="M106 400V150Q106 70 0 60" vector-effect="non-scaling-stroke"/>
+        <path d="M90 400V160Q90 92 0 82" vector-effect="non-scaling-stroke" opacity=".6"/>
+      </svg>
+    </div>
+    <svg class="garland" data-g="gate" viewBox="0 0 480 110" preserveAspectRatio="xMidYMin slice"></svg>
+    <div class="gate-top">
+      <div class="sh">शुभ विवाह</div>
+      <div class="nm">राघव &nbsp;♥&nbsp; महक</div>
+    </div>
+    <button class="seal" id="seal" aria-label="निमंत्रण खोलें">रा<small>♥</small>म</button>
+    <div class="tap">निमंत्रण खोलने के लिए सील को छुएँ</div>
+  </div>
+</div>
+
+<!-- ================= PAGE ================= -->
+<main id="app">
+
+  <!-- HERO -->
+  <section id="hero">
+    <svg class="garland" data-g="hero" viewBox="0 0 480 110" preserveAspectRatio="xMidYMin slice"></svg>
+    <div class="stars" aria-hidden="true">
+      <i style="top:30%;left:12%">✦</i><i style="top:42%;right:10%;animation-delay:1s">✦</i>
+      <i style="top:58%;left:20%;animation-delay:2s;font-size:10px">✦</i><i style="top:24%;right:22%;animation-delay:.6s;font-size:10px">✦</i>
+    </div>
+    <div class="om rv">॥ श्री गणेशाय नमः ॥</div>
+    <div class="shubh rv d1">शुभ विवाह</div>
+    <div class="hero-names rv d2">
+      राघव
+      <span class="amp">&amp;</span>
+      महक
+    </div>
+    <div class="hero-date rv d3"><b>11 दिसम्बर 2026</b> &nbsp;·&nbsp; सिरसा</div>
+    <div class="scroll-hint">▾ &nbsp;SCROLL&nbsp; ▾</div>
+
+    <svg class="palace" viewBox="0 0 480 190" aria-hidden="true">
+      <g fill="#f6e7c6">
+        <rect x="0" y="150" width="480" height="40"/>
+        <!-- centre dome -->
+        <rect x="190" y="95" width="100" height="60"/>
+        <path d="M190 95 Q190 52 240 40 Q290 52 290 95Z"/>
+        <rect x="238" y="22" width="4" height="22"/><circle cx="240" cy="20" r="4"/>
+        <!-- side domes -->
+        <rect x="90" y="115" width="70" height="40"/><path d="M90 115 Q90 85 125 78 Q160 85 160 115Z"/><rect x="123" y="66" width="4" height="14"/><circle cx="125" cy="64" r="3"/>
+        <rect x="320" y="115" width="70" height="40"/><path d="M320 115 Q320 85 355 78 Q390 85 390 115Z"/><rect x="353" y="66" width="4" height="14"/><circle cx="355" cy="64" r="3"/>
+        <!-- end towers -->
+        <rect x="20" y="125" width="44" height="30"/><path d="M20 125 Q20 104 42 98 Q64 104 64 125Z"/>
+        <rect x="416" y="125" width="44" height="30"/><path d="M416 125 Q416 104 438 98 Q460 104 460 125Z"/>
+      </g>
+      <g fill="#e6b84e">
+        <path d="M222 155V128Q222 114 240 112Q258 114 258 128V155Z"/>
+        <path d="M108 155V138Q108 128 125 126Q142 128 142 138V155Z"/>
+        <path d="M338 155V138Q338 128 355 126Q372 128 372 138V155Z"/>
+        <path d="M30 155V140Q30 134 42 132Q54 134 54 140V155Z"/>
+        <path d="M426 155V140Q426 134 438 132Q450 134 450 140V155Z"/>
+      </g>
+      <rect y="170" width="480" height="20" fill="#e6c776"/>
+    </svg>
+  </section>
+
+  <!-- INVITE -->
+  <section id="invite">
+    <div class="mantra rv">॥ श्री गणेशाय नमः ॥</div>
+    <p class="shloka rv d1">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥</p>
+    <div class="divider rv"><i>✦</i></div>
+    <p class="kripa rv">श्री तारा बाबा जी की कृपा से</p>
+    <div class="host rv d1">श्रीमती राजबाला एवं<br>श्री चुन्नी लाल बिरनोलिया</div>
+    <p class="small rv">अपने सुपुत्र</p>
+
+    <div class="person rv">
+      <div class="tag">Groom · वर</div>
+      <div class="pname">चि. रामदास <em>(राघव)</em></div>
+      <div class="par">(सुपौत्र स्व. श्रीमती रुकमणी देवी एवं<br>स्व. श्री श्योकरण दास जी सैनी)</div>
+    </div>
+
+    <div class="sang rv">❦ संग ❦</div>
+
+    <div class="person rv">
+      <div class="tag">Bride · वधू</div>
+      <div class="pname">सौ. महक रानी</div>
+      <div class="par">(सुपुत्री श्रीमती नीलम देवी एवं<br>श्री हंसराज जी सैनी कटारिया<br>निवासी गांव ढाणी सावनपूरा, सिरसा)</div>
+    </div>
+
+    <div class="vivah rv">के शुभ विवाह</div>
+    <p class="msg rv">पर आपको सादर आमंत्रित करते हैं,<br>कृपया सपरिवार पधार कर<br>वर-वधू को अपना शुभ आशीर्वाद प्रदान करें।</p>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section id="count">
+    <div class="eyebrow rv">बारात रवानगी में शेष</div>
+    <h2 class="title rv d1">शुभ घड़ी</h2>
+    <div class="count rv d2" id="cd">
+      <div><b id="cd-d">--</b><span>दिन</span></div>
+      <div><b id="cd-h">--</b><span>घंटे</span></div>
+      <div><b id="cd-m">--</b><span>मिनट</span></div>
+      <div><b id="cd-s">--</b><span>सेकंड</span></div>
+    </div>
+    <button class="btn rv" id="addCal">📅 &nbsp;कैलेंडर में जोड़ें</button>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="eyebrow rv">मांगलिक कार्यक्रम</div>
+    <h2 class="title rv d1">विवाह के उत्सव</h2>
+    <div class="swipe rv">← &nbsp;SWIPE&nbsp; →</div>
+    <div class="rail" id="rail"></div>
+    <div class="dots" id="dots"></div>
+
+    <div class="tl rv" id="tl" style="padding:0 26px"></div>
+  </section>
+
+  <!-- VENUE -->
+  <section id="venue">
+    <div class="eyebrow rv">प्रीतिभोज स्थल</div>
+    <div class="venue-name rv d1">विवासिटी <em>(Vivacity)</em></div>
+    <div class="divider rv"><i>✦</i></div>
+    <p class="addr rv">सिंकदरपुर मोड़, हिसार रोड़,<br>सिरसा – 125055 (हरि.)</p>
+    <div class="map rv">
+      <iframe loading="lazy" title="Vivacity, Sirsa map" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=Vivacity%20Hisar%20Road%20Sikanderpur%20Mod%20Sirsa%20125055&z=14&output=embed"></iframe>
+    </div>
+    <a class="btn solid rv" target="_blank" rel="noopener"
+       href="https://www.google.com/maps/search/?api=1&query=Vivacity+Hisar+Road+Sikanderpur+Mod+Sirsa+125055">📍 &nbsp;रास्ता देखें</a>
+  </section>
+
+  <!-- GALLERY (optional: add photo URLs in PHOTOS below) -->
+  <section id="gallery">
+    <div class="eyebrow">Pre-wedding</div>
+    <h<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>शुभ विवाह | राघव ♥ महक</title>
+<meta name="description" content="चि. रामदास (राघव) संग सौ. महक रानी के शुभ विवाह का निमंत्रण">
+<meta name="theme-color" content="#5a0a16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Tiro+Devanagari+Hindi:ital@0;1&family=Yatra+One&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============ THEME (change colours here) ============ */
+:root{
+  --maroon:#6b0f1a;
+  --maroon-d:#4a0811;
+  --maroon-l:#8a1a28;
+  --gold:#e0b04a;
+  --gold-l:#f6dc9a;
+  --cream:#fbf1dc;
+  --ink:#f8e9c8;
+  --serif:'Tiro Devanagari Hindi','Cormorant Garamond',Georgia,serif;
+  --display:'Yatra One','Tiro Devanagari Hindi',serif;
+  --sans:'Hind','Noto Sans Devanagari',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--serif);color:var(--ink);background:#2a050b;
+  min-height:100vh;overflow-x:hidden;
+}
+body.locked{overflow:hidden;height:100vh}
+
+/* page column (phone-width, centred on desktop) */
+#app{
+  position:relative;max-width:480px;margin:0 auto;min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 0,rgba(255,255,255,.07),transparent 55%),
+    var(--maroon);
+  box-shadow:0 0 80px rgba(0,0,0,.6);overflow:hidden;
+}
+/* lattice (jaali) pattern */
+#app::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.16;
+  background-image:
+    radial-gradient(circle at 50% 50%,transparent 0 9px,var(--gold) 9.5px 10.5px,transparent 11px),
+    radial-gradient(circle at 0 0,transparent 0 9px,var(--gold) 9.5px 10.5px,transparent 11px),
+    radial-gradient(circle at 100% 0,transparent 0 9px,var(--gold) 9.5px 10.5px,transparent 11px),
+    radial-gradient(circle at 0 100%,transparent 0 9px,var(--gold) 9.5px 10.5px,transparent 11px),
+    radial-gradient(circle at 100% 100%,transparent 0 9px,var(--gold) 9.5px 10.5px,transparent 11px);
+  background-size:36px 36px;
+}
+section{position:relative;padding:64px 26px;text-align:center}
+.eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);opacity:.9}
+h2.title{font-family:var(--display);font-weight:400;font-size:30px;color:var(--gold-l);margin:10px 0 6px;line-height:1.3}
+.divider{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--gold);margin:14px auto 22px;width:70%}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.divider::after{transform:scaleX(-1)}
+.divider i{font-style:normal;font-size:14px}
+
+/* scroll-reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
+
+/* ============ GATE ============ */
+#gate{position:fixed;inset:0;z-index:100;display:flex;justify-content:center;pointer-events:auto}
+#gate.gone{pointer-events:none}
+.gate-inner{position:relative;width:100%;max-width:480px;height:100%;overflow:hidden}
+.door{
+  position:absolute;top:0;bottom:0;width:50.2%;
+  background:
+    radial-gradient(circle at 50% 50%,transparent 0 9px,rgba(224,176,74,.35) 9.5px 10.5px,transparent 11px) 0 0/36px 36px,
+    linear-gradient(180deg,var(--maroon-d),var(--maroon));
+  transition:transform 1.8s cubic-bezier(.77,0,.18,1);
+  z-index:2;
+}
+.door.l{left:0;border-right:2px solid var(--gold)}
+.door.r{right:0;border-left:2px solid var(--gold)}
+.door svg{position:absolute;inset:0;width:100%;height:100%}
+#gate.open .door.l{transform:translateX(-102%)}
+#gate.open .door.r{transform:translateX(102%)}
+.gate-top{
+  position:absolute;top:0;left:0;right:0;z-index:5;text-align:center;padding-top:18vh;
+  transition:opacity .6s;
+}
+.gate-top .sh{font-family:var(--display);font-size:clamp(40px,12vw,56px);color:var(--gold-l);text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.gate-top .nm{font-family:var(--sans);letter-spacing:.3em;font-size:12px;color:var(--gold);margin-top:10px}
+.seal{
+  position:absolute;left:50%;top:52%;z-index:6;width:118px;height:118px;border-radius:50%;
+  transform:translate(-50%,-50%);border:0;cursor:pointer;
+  background:radial-gradient(circle at 35% 30%,#ff6a73,#c01d2d 55%,#7e0f1c);
+  box-shadow:0 0 0 5px var(--gold),0 0 0 8px var(--maroon-d),0 12px 34px rgba(0,0,0,.55);
+  color:var(--gold-l);font-family:var(--display);font-size:30px;line-height:1;
+  display:grid;place-items:center;animation:pulse 2s ease-in-out infinite;
+  transition:opacity .5s,transform .8s;
+}
+.seal::after{content:"";position:absolute;inset:9px;border-radius:50%;border:1.5px dashed rgba(246,220,154,.7)}
+.seal small{display:block;font-size:20px;margin:2px 0;color:#ffd7a0}
+@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.07)}}
+.tap{position:absolute;bottom:9vh;left:0;right:0;text-align:center;z-index:5;font-family:var(--sans);
+  letter-spacing:.3em;font-size:11px;color:var(--gold);animation:blink 2s infinite}
+@keyframes blink{50%{opacity:.35}}
+#gate.open .seal{opacity:0;transform:translate(-50%,-50%) scale(1.6);animation:none}
+#gate.open .gate-top,#gate.open .tap{opacity:0}
+
+/* ============ GARLANDS ============ */
+.garland{position:absolute;left:0;right:0;top:0;width:100%;height:auto;pointer-events:none;z-index:4}
+.gate-inner .garland{z-index:7}
+
+/* ============ HERO ============ */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:110px;padding-bottom:230px}
+.om{font-size:15px;color:var(--gold);letter-spacing:.2em;margin-bottom:8px}
+#hero .shubh{font-family:var(--display);font-size:clamp(40px,12vw,54px);color:var(--gold-l);line-height:1.2;text-shadow:0 3px 20px rgba(0,0,0,.4)}
+.hero-names{margin:26px 0 8px;font-family:var(--display);font-size:clamp(34px,10vw,46px);line-height:1.25;color:var(--cream)}
+.hero-names .amp{display:block;font-size:20px;color:var(--gold);margin:2px 0}
+.hero-date{font-family:var(--sans);letter-spacing:.22em;font-size:13px;color:var(--gold-l);margin-top:16px}
+.hero-date b{font-weight:600}
+.scroll-hint{position:absolute;left:0;right:0;bottom:200px;font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--gold);animation:blink 2.4s infinite}
+.palace{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;display:block}
+.stars i{position:absolute;color:var(--gold);font-style:normal;animation:tw 3s infinite}
+@keyframes tw{50%{opacity:.2;transform:scale(.7)}}
+
+/* ============ INVITE ============ */
+#invite .shloka{font-size:15px;line-height:2;color:var(--gold-l);font-style:italic}
+.mantra{font-size:13px;color:var(--gold);margin:0 0 4px}
+.kripa{margin:26px 0 8px;font-size:15px;color:var(--ink);opacity:.9}
+.host{font-family:var(--display);font-size:22px;color:var(--gold-l);line-height:1.5}
+.small{font-size:14px;opacity:.85;margin:10px 0}
+.person{margin:22px auto;padding:26px 18px;max-width:340px;border:1.5px solid rgba(224,176,74,.55);border-radius:180px 180px 18px 18px;
+  background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.05));position:relative}
+.person::before{content:"";position:absolute;inset:6px;border:1px solid rgba(224,176,74,.3);border-radius:174px 174px 12px 12px;pointer-events:none}
+.person .tag{font-family:var(--sans);letter-spacing:.3em;font-size:10px;color:var(--gold);text-transform:uppercase}
+.person .pname{font-family:var(--display);font-size:31px;color:var(--cream);margin:8px 0 4px;line-height:1.25}
+.person .pname em{font-style:normal;font-size:22px;color:var(--gold-l)}
+.person .par{font-size:13.5px;line-height:1.8;opacity:.88}
+.sang{font-family:var(--display);color:var(--gold);font-size:22px;margin:6px 0}
+.vivah{font-family:var(--display);font-size:28px;color:var(--gold-l);margin-top:30px}
+.msg{margin-top:12px;line-height:2;font-size:16px}
+
+/* ============ COUNTDOWN ============ */
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:26px 0 8px}
+.count div{background:rgba(0,0,0,.25);border:1px solid rgba(224,176,74,.45);border-radius:14px;padding:14px 4px}
+.count b{display:block;font-family:var(--display);font-weight:400;font-size:30px;color:var(--gold-l)}
+.count span{font-size:12px;color:var(--gold);font-family:var(--sans)}
+.btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:12px 22px;border-radius:999px;border:1.5px solid var(--gold);
+  background:transparent;color:var(--gold-l);font-family:var(--serif);font-size:15px;cursor:pointer;text-decoration:none;transition:.25s}
+.btn:hover,.btn:active{background:var(--gold);color:var(--maroon-d)}
+.btn.solid{background:var(--gold);color:var(--maroon-d)}
+.btn.solid:hover{background:var(--gold-l)}
+
+/* ============ FESTIVITIES CAROUSEL ============ */
+#events{padding-left:0;padding-right:0}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 11% 20px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.ev{flex:0 0 78%;scroll-snap-align:center;border-radius:26px;padding:28px 18px 26px;position:relative;
+  background:linear-gradient(170deg,rgba(0,0,0,.28),rgba(0,0,0,.08));border:1.5px solid rgba(224,176,74,.5);
+  transition:transform .4s,opacity .4s;opacity:.55;transform:scale(.93)}
+.ev.act{opacity:1;transform:none}
+.ev .ic{width:92px;height:92px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;font-size:42px;
+  background:radial-gradient(circle,var(--gold-l),var(--gold));box-shadow:0 0 0 6px rgba(224,176,74,.22),inset 0 -6px 14px rgba(0,0,0,.18)}
+.ev h3{font-family:var(--display);font-weight:400;font-size:26px;color:var(--cream);line-height:1.3}
+.ev .day{font-family:var(--sans);font-size:11px;letter-spacing:.2em;color:var(--gold);margin-top:10px;text-transform:uppercase}
+.ev .dt{font-family:var(--display);font-size:20px;color:var(--gold-l);margin-top:4px}
+.ev .tm{margin-top:8px;font-size:17px}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:4px}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(224,176,74,.35);transition:.3s}
+.dots i.on{background:var(--gold);width:22px;border-radius:6px}
+.swipe{font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--gold);margin-bottom:6px}
+
+/* timeline list (compact) */
+.tl{max-width:360px;margin:30px auto 0;text-align:left}
+.tl .row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(224,176,74,.35);font-size:15px}
+.tl .row b{font-weight:400;color:var(--gold-l)}
+.tl .row span:last-child{color:var(--ink);white-space:nowrap}
+.tl .dh{font-family:var(--sans);font-size:11px;letter-spacing:.18em;color:var(--gold);padding-top:16px;border:0}
+
+/* ============ VENUE ============ */
+.venue-name{font-family:var(--display);font-size:32px;color:var(--cream);margin-top:6px}
+.venue-name em{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold-l)}
+.addr{margin-top:8px;line-height:1.9;font-size:16px}
+.map{margin-top:24px;border-radius:22px;overflow:hidden;border:2px solid var(--gold);box-shadow:0 12px 30px rgba(0,0,0,.4);background:#3b0a12;aspect-ratio:4/3.2}
+.map iframe{width:100%;height:100%;border:0;display:block;filter:saturate(.85)}
+
+/* ============ GALLERY (appears only if PHOTOS has items) ============ */
+#gallery{display:none}
+#gallery.show{display:block}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.gal img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;border:2px solid var(--gold-l);box-shadow:0 8px 18px rgba(0,0,0,.4)}
+.gal img:first-child{grid-column:span 2;aspect-ratio:16/11}
+
+/* ============ FAMILY ============ */
+.fam{margin-top:22px}
+.fam h4{font-family:var(--display);font-weight:400;font-size:19px;color:var(--gold);margin-bottom:6px}
+.fam p{font-size:15.5px;line-height:1.95;color:var(--ink)}
+.fam + .fam{margin-top:28px}
+.three{display:grid;gap:22px;margin-top:30px}
+.firm{margin-top:34px;padding-top:18px;border-top:1px solid rgba(224,176,74,.4);font-size:14px;color:var(--gold-l)}
+
+footer{padding:50px 26px 70px;text-align:center;font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:var(--gold)}
+footer .big{font-family:var(--display);font-size:26px;letter-spacing:0;color:var(--gold-l);margin-bottom:10px}
+
+#petals{position:fixed;inset:0;pointer-events:none;z-index:50}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body class="locked">
+
+<!-- reusable marigold flower -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mg" viewBox="-20 -20 40 40">
+      <g>
+        <g id="pt"><ellipse cx="0" cy="-11" rx="6.2" ry="9"/></g>
+        <use href="#pt" transform="rotate(30)"/><use href="#pt" transform="rotate(60)"/><use href="#pt" transform="rotate(90)"/>
+        <use href="#pt" transform="rotate(120)"/><use href="#pt" transform="rotate(150)"/><use href="#pt" transform="rotate(180)"/>
+        <use href="#pt" transform="rotate(210)"/><use href="#pt" transform="rotate(240)"/><use href="#pt" transform="rotate(270)"/>
+        <use href="#pt" transform="rotate(300)"/><use href="#pt" transform="rotate(330)"/>
+        <circle r="6" fill="#b45309" opacity=".55"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<canvas id="petals"></canvas>
+
+<!-- ================= GATE ================= -->
+<div id="gate">
+  <div class="gate-inner">
+    <div class="door l">
+      <svg viewBox="0 0 120 400" preserveAspectRatio="none" fill="none" stroke="#e0b04a" stroke-width="1.6" opacity=".75">
+        <path d="M14 400V150Q14 70 120 60" vector-effect="non-scaling-stroke"/>
+        <path d="M30 400V160Q30 92 120 82" vector-effect="non-scaling-stroke" opacity=".6"/>
+      </svg>
+    </div>
+    <div class="door r">
+      <svg viewBox="0 0 120 400" preserveAspectRatio="none" fill="none" stroke="#e0b04a" stroke-width="1.6" opacity=".75">
+        <path d="M106 400V150Q106 70 0 60" vector-effect="non-scaling-stroke"/>
+        <path d="M90 400V160Q90 92 0 82" vector-effect="non-scaling-stroke" opacity=".6"/>
+      </svg>
+    </div>
+    <svg class="garland" data-g="gate" viewBox="0 0 480 110" preserveAspectRatio="xMidYMin slice"></svg>
+    <div class="gate-top">
+      <div class="sh">शुभ विवाह</div>
+      <div class="nm">राघव &nbsp;♥&nbsp; महक</div>
+    </div>
+    <button class="seal" id="seal" aria-label="निमंत्रण खोलें">रा<small>♥</small>म</button>
+    <div class="tap">निमंत्रण खोलने के लिए सील को छुएँ</div>
+  </div>
+</div>
+
+<!-- ================= PAGE ================= -->
+<main id="app">
+
+  <!-- HERO -->
+  <section id="hero">
+    <svg class="garland" data-g="hero" viewBox="0 0 480 110" preserveAspectRatio="xMidYMin slice"></svg>
+    <div class="stars" aria-hidden="true">
+      <i style="top:30%;left:12%">✦</i><i style="top:42%;right:10%;animation-delay:1s">✦</i>
+      <i style="top:58%;left:20%;animation-delay:2s;font-size:10px">✦</i><i style="top:24%;right:22%;animation-delay:.6s;font-size:10px">✦</i>
+    </div>
+    <div class="om rv">॥ श्री गणेशाय नमः ॥</div>
+    <div class="shubh rv d1">शुभ विवाह</div>
+    <div class="hero-names rv d2">
+      राघव
+      <span class="amp">&amp;</span>
+      महक
+    </div>
+    <div class="hero-date rv d3"><b>11 दिसम्बर 2026</b> &nbsp;·&nbsp; सिरसा</div>
+    <div class="scroll-hint">▾ &nbsp;SCROLL&nbsp; ▾</div>
+
+    <svg class="palace" viewBox="0 0 480 190" aria-hidden="true">
+      <g fill="#f6e7c6">
+        <rect x="0" y="150" width="480" height="40"/>
+        <!-- centre dome -->
+        <rect x="190" y="95" width="100" height="60"/>
+        <path d="M190 95 Q190 52 240 40 Q290 52 290 95Z"/>
+        <rect x="238" y="22" width="4" height="22"/><circle cx="240" cy="20" r="4"/>
+        <!-- side domes -->
+        <rect x="90" y="115" width="70" height="40"/><path d="M90 115 Q90 85 125 78 Q160 85 160 115Z"/><rect x="123" y="66" width="4" height="14"/><circle cx="125" cy="64" r="3"/>
+        <rect x="320" y="115" width="70" height="40"/><path d="M320 115 Q320 85 355 78 Q390 85 390 115Z"/><rect x="353" y="66" width="4" height="14"/><circle cx="355" cy="64" r="3"/>
+        <!-- end towers -->
+        <rect x="20" y="125" width="44" height="30"/><path d="M20 125 Q20 104 42 98 Q64 104 64 125Z"/>
+        <rect x="416" y="125" width="44" height="30"/><path d="M416 125 Q416 104 438 98 Q460 104 460 125Z"/>
+      </g>
+      <g fill="#e6b84e">
+        <path d="M222 155V128Q222 114 240 112Q258 114 258 128V155Z"/>
+        <path d="M108 155V138Q108 128 125 126Q142 128 142 138V155Z"/>
+        <path d="M338 155V138Q338 128 355 126Q372 128 372 138V155Z"/>
+        <path d="M30 155V140Q30 134 42 132Q54 134 54 140V155Z"/>
+        <path d="M426 155V140Q426 134 438 132Q450 134 450 140V155Z"/>
+      </g>
+      <rect y="170" width="480" height="20" fill="#e6c776"/>
+    </svg>
+  </section>
+
+  <!-- INVITE -->
+  <section id="invite">
+    <div class="mantra rv">॥ श्री गणेशाय नमः ॥</div>
+    <p class="shloka rv d1">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥</p>
+    <div class="divider rv"><i>✦</i></div>
+    <p class="kripa rv">श्री तारा बाबा जी की कृपा से</p>
+    <div class="host rv d1">श्रीमती राजबाला एवं<br>श्री चुन्नी लाल बिरनोलिया</div>
+    <p class="small rv">अपने सुपुत्र</p>
+
+    <div class="person rv">
+      <div class="tag">Groom · वर</div>
+      <div class="pname">चि. रामदास <em>(राघव)</em></div>
+      <div class="par">(सुपौत्र स्व. श्रीमती रुकमणी देवी एवं<br>स्व. श्री श्योकरण दास जी सैनी)</div>
+    </div>
+
+    <div class="sang rv">❦ संग ❦</div>
+
+    <div class="person rv">
+      <div class="tag">Bride · वधू</div>
+      <div class="pname">सौ. महक रानी</div>
+      <div class="par">(सुपुत्री श्रीमती नीलम देवी एवं<br>श्री हंसराज जी सैनी कटारिया<br>निवासी गांव ढाणी सावनपूरा, सिरसा)</div>
+    </div>
+
+    <div class="vivah rv">के शुभ विवाह</div>
+    <p class="msg rv">पर आपको सादर आमंत्रित करते हैं,<br>कृपया सपरिवार पधार कर<br>वर-वधू को अपना शुभ आशीर्वाद प्रदान करें।</p>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section id="count">
+    <div class="eyebrow rv">बारात रवानगी में शेष</div>
+    <h2 class="title rv d1">शुभ घड़ी</h2>
+    <div class="count rv d2" id="cd">
+      <div><b id="cd-d">--</b><span>दिन</span></div>
+      <div><b id="cd-h">--</b><span>घंटे</span></div>
+      <div><b id="cd-m">--</b><span>मिनट</span></div>
+      <div><b id="cd-s">--</b><span>सेकंड</span></div>
+    </div>
+    <button class="btn rv" id="addCal">📅 &nbsp;कैलेंडर में जोड़ें</button>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="eyebrow rv">मांगलिक कार्यक्रम</div>
+    <h2 class="title rv d1">विवाह के उत्सव</h2>
+    <div class="swipe rv">← &nbsp;SWIPE&nbsp; →</div>
+    <div class="rail" id="rail"></div>
+    <div class="dots" id="dots"></div>
+
+    <div class="tl rv" id="tl" style="padding:0 26px"></div>
+  </section>
+
+  <!-- VENUE -->
+  <section id="venue">
+    <div class="eyebrow rv">प्रीतिभोज स्थल</div>
+    <div class="venue-name rv d1">विवासिटी <em>(Vivacity)</em></div>
+    <div class="divider rv"><i>✦</i></div>
+    <p class="addr rv">सिंकदरपुर मोड़, हिसार रोड़,<br>सिरसा – 125055 (हरि.)</p>
+    <div class="map rv">
+      <iframe loading="lazy" title="Vivacity, Sirsa map" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=Vivacity%20Hisar%20Road%20Sikanderpur%20Mod%20Sirsa%20125055&z=14&output=embed"></iframe>
+    </div>
+    <a class="btn solid rv" target="_blank" rel="noopener"
+       href="https://www.google.com/maps/search/?api=1&query=Vivacity+Hisar+Road+Sikanderpur+Mod+Sirsa+125055">📍 &nbsp;रास्ता देखें</a>
+  </section>
+
+  <!-- GALLERY (optional: add photo URLs in PHOTOS below) -->
+  <section id="gallery">
+    <div class="eyebrow">Pre-wedding</div>
+    <h
