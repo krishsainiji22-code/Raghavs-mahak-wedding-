@@ -216,6 +216,12 @@ footer .big{font-family:var(--display);font-size:26px;letter-spacing:0;color:var
   height:auto;          /* follows the video's own 9:16 ratio */
   object-fit:contain;   /* never crop; use "cover" only if you want a crop */
 }
+  #musicBtn{
+  position:fixed;right:14px;bottom:14px;z-index:120;width:46px;height:46px;border-radius:50%;
+  border:1.5px solid var(--gold);background:rgba(74,8,17,.85);color:var(--gold-l);
+  font-size:20px;cursor:pointer;display:none;box-shadow:0 6px 16px rgba(0,0,0,.4)
+}
+#musicBtn.show{display:block}
 </style>
 </head>
 <body class="locked">
@@ -237,6 +243,8 @@ footer .big{font-family:var(--display);font-size:26px;letter-spacing:0;color:var
 </svg>
 
 <canvas id="petals"></canvas>
+  <audio id="bgm" src="song.mp3" loop preload="auto"></audio>
+<button id="musicBtn" aria-label="Music on/off">🔊</button>
 
 <!-- ================= GATE ================= -->
 <div id="gate">
@@ -563,8 +571,20 @@ function openGate(){
   window.scrollTo(0,0);
 }
 document.getElementById('seal').addEventListener('click',openGate);
+  function openGate(){
+  if(gate.classList.contains('open'))return;
+  gate.classList.add('open');
+  const bgm=document.getElementById('bgm'), btn=document.getElementById('musicBtn');
+  bgm.volume=0.6;
+  bgm.play().then(()=>btn.classList.add('show')).catch(()=>btn.classList.add('show'));
+  setTimeout(()=>{document.body.classList.remove('locked');startPetals()},900);
+  setTimeout(()=>{gate.classList.add('gone');gate.style.display='none'},2000);
+  window.scrollTo(0,0);
+  }
+  document.getElementById('musicBtn').addEventListener('click',function(){
+  const a=document.getElementById('bgm');
+  if(a.paused){a.play();this.textContent='🔊'}else{a.pause();this.textContent='🔇'}
+});
 </script>
-  <audio id="bgm" loop src="Hanuman ansh 🕉️💞 Parvati lyrics #love #mahadev #shivshakti #parvati #lyrics_rdf0a.mp3"></audio>
-<button onclick="document.getElementById('bgm').play()">▶ Play music</button>
 </body>
 </html>
